@@ -30,8 +30,8 @@ export default class Navbar extends Vue {
     reader.onload = (e) => {
       const resultJSON: any = reader.result;
       const result = JSON.parse(resultJSON);
-      console.log(result);
-      // TODO: set store = result;
+      mutations.storeLoad(result);
+      console.log('store after upload', store);
     }
     reader.readAsText(files[0]);
   }
@@ -41,19 +41,19 @@ export default class Navbar extends Vue {
   }
 
   private download(): void {
-    alert(JSON.stringify(store));
-    // const data = JSON.stringify(store);
-    // const blob = new Blob([data], { type: "text/plain;charset=utf-8;" });
-    // const link: HTMLAnchorElement = document.createElement("a");
-    // if (link.download !== undefined) {
-    //   const url = URL.createObjectURL(blob);
-    //   link.setAttribute("href", url);
-    //   link.setAttribute("download", "form.json");
-    //   link.style.visibility = "hidden";
-    //   document.body.appendChild(link);
-    //   link.click();
-    //   document.body.removeChild(link);
-    // }
+    console.log('store before download', store);
+    const data = JSON.stringify(store);
+    const blob = new Blob([data], { type: "text/plain;charset=utf-8;" });
+    const link: HTMLAnchorElement = document.createElement("a");
+    if (link.download !== undefined) {
+      const url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", "form.json");
+      link.style.visibility = "hidden";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   }
 }
 </script>

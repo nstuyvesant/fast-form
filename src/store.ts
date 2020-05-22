@@ -2,7 +2,7 @@ import Vue from "vue";
 import { Store, Section, Question } from "@/types";
 
 // Initial state unless loading a JSON
-export const store: Store = Vue.observable({
+export let store: Store = Vue.observable({
   name: "",
   sections: [
     {
@@ -26,6 +26,9 @@ export const mutations = {
   // subsectionAdd(section: Section, subsection: Section): void {
   //   section.subsections.push(subsection);
   // },
+  storeLoad(uploadedStore: Store): void {
+    store = uploadedStore;
+  },
   questionDelete(section: Section, questionToDelete: Question): void {
     console.log(questionToDelete);
     // const index: number = store.sections.findIndex(
