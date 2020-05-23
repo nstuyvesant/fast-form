@@ -41,7 +41,6 @@ export default class Designer extends Vue {
   }
 
   private sectionDelete(index: number): void {
-    // console.log('section', sectionToDelete);
     mutations.sectionDelete(index);
   }
 
@@ -56,7 +55,7 @@ export default class Designer extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .card {
   margin-bottom: 20px;
 }

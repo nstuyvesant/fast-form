@@ -17,7 +17,7 @@
               fa(:icon='["fas", "check"]')
       
       QuestionEditor(v-for='(question, index) in section.questions', :question='question', :index='index', v-on:delete='questionDelete')
-      //- SectionEditor(v-for='(subsection, index) in section.subsections', :section='section', :index='index', v-on:delete='sectionDelete')
+      SectionEditor(v-for='(subsection, index) in section.subsections', :section='subsection', :index='index', v-on:delete='subsectionDelete')
 
       button.btn.btn-success(@click='subsectionAdd', type='button')
         fa(:icon='["fas", "plus-circle"]') 
@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { mutations } from "@/store";
+import { mutations, store } from "@/store";
 import { Section } from "@/types";
 import { required, minLength } from "vuelidate/lib/validators";
 
@@ -57,7 +57,7 @@ export default class SectionEditor extends Vue {
 
   private sectionDelete(): void {
     this.$emit("delete", this.index);
-    console.log(this.section);
+    console.log("Section Delete", this.section);
   }
 
   private questionDelete(index: number): void {
@@ -73,9 +73,10 @@ export default class SectionEditor extends Vue {
     this.section.subsections.push(subsection);
   }
 
-  // private subsectionDelete(sectionIndex: number, index: number): void {
-  //   mutations.subsectionDelete(sectionIndex, index);
-  // }
+  private subsectionDelete(sectionIndex: number, index: number): void {
+    console.log("Subsection DELETE");
+    // mutations.subsectionDelete(sectionIndex, index);
+  }
 
   private rawQuestionsParse(): void {
     if (this.rawQuestions.length > 0) {
