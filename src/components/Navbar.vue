@@ -24,25 +24,24 @@ export default class Navbar extends Vue {
   private files: string[] = [];
 
   private upload(event: any): void {
-    const files : FileList = event.target.files;
+    const files: FileList = event.target.files;
     if (files.length <= 0) return;
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = () => {
       const resultJSON: any = reader.result;
       const result = JSON.parse(resultJSON);
-      mutations.storeLoad(result);
-      console.log('store after upload', store);
-    }
+      mutations.storeDataSet(result);
+    };
     reader.readAsText(files[0]);
   }
 
   private preview(): void {
-    alert("Preview");
+    alert("Preview (TBD)");
   }
 
   private download(): void {
-    console.log('store before download', store);
-    const data = JSON.stringify(store);
+    const data = JSON.stringify(store.data);
+    console.log("store before download", JSON.parse(data)); // extracts object from Observable
     const blob = new Blob([data], { type: "text/plain;charset=utf-8;" });
     const link: HTMLAnchorElement = document.createElement("a");
     if (link.download !== undefined) {
@@ -60,6 +59,6 @@ export default class Navbar extends Vue {
 
 <style scoped lang="scss">
 input[type="file"] {
-    display: none;
+  display: none;
 }
 </style>

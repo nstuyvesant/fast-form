@@ -1,33 +1,39 @@
 import Vue from "vue";
-import { Store, Section, Question } from "@/types";
+import { Store, Form, Section, Question } from "@/types";
 
 // Initial state unless loading a JSON
-export let store: Store = Vue.observable({
-  name: "",
-  sections: [
-    {
-      name: "Section 1",
-      questions: [],
-      subsections: [],
-    },
-  ],
+export const store: Store = Vue.observable({
+  data: {
+    name: "",
+    sections: [
+      {
+        name: "Section 1",
+        questions: [],
+        subsections: [],
+      },
+    ],
+  },
 });
 
 export const mutations = {
-  formName(name: string): void {
-    store.name = name;
+  nameSet(name: string): void {
+    store.data.name = name;
   },
   sectionAdd(section: Section): void {
-    store.sections.push(section);
+    store.data.sections.push(section);
   },
   sectionDelete(index: number): void {
-    store.sections.splice(index, 1);
+    // top-level sections (not subsections)
+    store.data.sections.splice(index, 1);
   },
   // subsectionAdd(section: Section, subsection: Section): void {
   //   section.subsections.push(subsection);
   // },
-  storeLoad(uploadedStore: Store): void {
-    store = uploadedStore;
+  subsectionDelete(sectionIndex: number, index: number): void {
+    console.log(sectionIndex, index);
+  },
+  storeDataSet(uploadedStore: Form): void {
+    store.data = uploadedStore;
   },
   questionDelete(section: Section, questionToDelete: Question): void {
     console.log(questionToDelete);

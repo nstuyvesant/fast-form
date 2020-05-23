@@ -17,7 +17,7 @@
               fa(:icon='["fas", "check"]')
       
       QuestionEditor(v-for='(question, index) in section.questions', :question='question', :index='index', v-on:delete='questionDelete')
-      SectionEditor(v-for='(subsection, index) in section.subsections', :section='section', :index='index')
+      //- SectionEditor(v-for='(subsection, index) in section.subsections', :section='section', :index='index', v-on:delete='sectionDelete')
 
       button.btn.btn-success(@click='subsectionAdd', type='button')
         fa(:icon='["fas", "plus-circle"]') 
@@ -35,7 +35,7 @@ import { required, minLength } from "vuelidate/lib/validators";
     section: {
       name: { required },
       questions: {
-        minLength: minLength(1)
+        minLength: minLength(1),
       },
     },
   },
@@ -56,7 +56,8 @@ export default class SectionEditor extends Vue {
   @Prop(Number) readonly index: number | undefined;
 
   private sectionDelete(): void {
-    this.$emit('delete', this.index);
+    this.$emit("delete", this.index);
+    console.log(this.section);
   }
 
   private questionDelete(index: number): void {
@@ -71,6 +72,10 @@ export default class SectionEditor extends Vue {
     };
     this.section.subsections.push(subsection);
   }
+
+  // private subsectionDelete(sectionIndex: number, index: number): void {
+  //   mutations.subsectionDelete(sectionIndex, index);
+  // }
 
   private rawQuestionsParse(): void {
     if (this.rawQuestions.length > 0) {

@@ -23,30 +23,31 @@ import { required, minLength } from "vuelidate/lib/validators";
   validations: {
     name: { required },
     sections: {
-      minLength: minLength(1)
+      minLength: minLength(1),
     },
   },
 })
 export default class Designer extends Vue {
   private get name(): string {
-    return store.name;
+    return store.data.name;
   }
 
   private set name(name: string) {
-    mutations.formName(name);
+    mutations.nameSet(name);
   }
 
   private get sections(): Section[] {
-    return store.sections;
+    return store.data.sections;
   }
 
   private sectionDelete(index: number): void {
+    // console.log('section', sectionToDelete);
     mutations.sectionDelete(index);
   }
 
   private sectionAdd(): void {
     const section: Section = {
-      name: `Section ${store.sections.length + 1}`,
+      name: `Section ${store.data.sections.length + 1}`,
       questions: [],
       subsections: [],
     };

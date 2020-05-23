@@ -66,10 +66,11 @@ export default class QuestionEditor extends Vue {
 
   @Prop(Number) readonly index: number | undefined;
 
-  private rawValues = this.question.values.length > 0 ? this.question.values.join("\n") : "";
+  private rawValues =
+    this.question.values.length > 0 ? this.question.values.join("\n") : "";
 
   private questionDelete(): void {
-    this.$emit('delete', this.index);
+    this.$emit("delete", this.index);
   }
 
   private rawValuesParse(): void {

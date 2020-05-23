@@ -11,7 +11,11 @@ export interface Section {
   subsections: Section[];
 }
 
-export interface Store {
+export interface Form {
   name: string;
   sections: Section[];
+}
+
+export interface Store {
+  data: Form;
 }
