@@ -50,19 +50,26 @@ export default class SectionEditor extends Vue {
   })
   private section!: Section;
 
-  private rawQuestions = "";
-  private dataTypeDefault = "TextArea(3 rows)";
-
+  // Index passed by parent to be used when emitting event to delete this ection
   @Prop(Number) readonly index: number | undefined;
 
+  // Contents of textarea for quick addition to list of questions
+  private rawQuestions = "";
+
+  // Default data type for each question
+  private dataTypeDefault = "TextArea(3 rows)";
+
+  // Emit a delete event to the Designer component to delete this section
   private sectionDelete(): void {
     this.$emit("delete", this.index);
   }
 
+  // Handler for emitted event from child question to delete it
   private questionDelete(index: number): void {
     this.section.questions.splice(index, 1);
   }
 
+  // Add a new subsection assigning it the next id from the store
   private subsectionAdd(): void {
     const subsection: Section = {
       id: mutations.nextId(),
@@ -73,10 +80,12 @@ export default class SectionEditor extends Vue {
     this.section.subsections.push(subsection);
   }
 
+  // Handler for emitted event from child subsection to delete it
   private subsectionDelete(index: number): void {
     this.section.subsections.splice(index, 1);
   }
 
+  // Convert lines in the textarea to new question array elements
   private rawQuestionsParse(): void {
     if (this.rawQuestions.length > 0) {
       const labels = this.rawQuestions.split("\n");
@@ -95,5 +104,3 @@ export default class SectionEditor extends Vue {
   }
 }
 </script>
-
-<style scoped lang="scss"></style>

@@ -40,10 +40,12 @@ export default class Designer extends Vue {
     return store.data.sections;
   }
 
+  // Handler for delete event emitted from child section
   private sectionDelete(index: number): void {
     mutations.sectionDelete(index);
   }
 
+  // Add a new section using the next id from the store
   private sectionAdd(): void {
     const section: Section = {
       name: `Section ${store.data.sections.length + 1}`,

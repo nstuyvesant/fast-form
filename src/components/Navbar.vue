@@ -23,6 +23,7 @@ import { store, mutations } from "@/store";
 export default class Navbar extends Vue {
   private files: string[] = [];
 
+  // Read JSON file into store 
   private upload(event: any): void {
     const files: FileList = event.target.files;
     if (files.length <= 0) return;
@@ -35,10 +36,12 @@ export default class Navbar extends Vue {
     reader.readAsText(files[0]);
   }
 
+  // Future - preview of form in its current state (might be superfluous)
   private preview(): void {
     alert("Preview (TBD)");
   }
 
+  // Download store into JSON file
   private download(): void {
     const data = JSON.stringify(store.data);
     console.log("store before download", JSON.parse(data)); // extracts object from Observable
