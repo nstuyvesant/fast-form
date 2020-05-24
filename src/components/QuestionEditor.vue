@@ -37,25 +37,27 @@
       option ZIP Code +4
     .input-group-append
       b-dropdown(text='', variant='outline-secondary', size='sm')
-        b-dropdown-item(v-b-modal="'editValues'+ index")
+        b-dropdown-item(v-b-modal='modalName(question.id)')
           fa.text-danger(:icon='["fas", "edit"]')
           | &nbsp; Edit Values
         b-dropdown-item(@click='questionDelete')
           fa.text-danger(:icon='["fas", "trash-alt"]')
           | &nbsp; Delete
 
-  b-modal(:id=`editValues${index }`, title='Edit List Values', @ok='rawValuesParse')
-    textarea.form-control(rows=5, v-model.trim='rawValues')
+  b-modal(:id='modalName(question.id)', title='Edit List Values', @ok='rawValuesParse')
+    textarea.form-control(rows=5, v-model.trim='rawValues', autofocus='')
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { Question } from "@/types";
+import { mutations } from "@/store";
 
 @Component
 export default class QuestionEditor extends Vue {
   @Prop({
     default: {
+      id: mutations.nextId(),
       required: false,
       label: "",
       dataType: "TextArea(3 rows)",
@@ -66,13 +68,21 @@ export default class QuestionEditor extends Vue {
 
   @Prop(Number) readonly index: number | undefined;
 
+  // Create unique modal name/id corresponding to the question's id  
+  private modalName(id: number): string {
+    return `modal${id}`;
+  }
+
+  // Convert array elements to lines for the textarea
   private rawValues =
     this.question.values.length > 0 ? this.question.values.join("\n") : "";
 
+  // Emit event to parent to delete this question
   private questionDelete(): void {
     this.$emit("delete", this.index);
   }
 
+  // Convert rows in the textarea to array elements
   private rawValuesParse(): void {
     if (this.rawValues.length > 0) {
       const values = this.rawValues.split("\n");
