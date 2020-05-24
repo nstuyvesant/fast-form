@@ -21,9 +21,9 @@ generates can be imported into LC360.
 
 1. Make sure prerequisites are installed for your operating system.
 
-2. Run `git clone https://github.com/nstuyvesant/fast-form.git` then connect to the /shy directory.
+2. Run `git clone https://github.com/nstuyvesant/fast-form.git` then connect to the /fast-form directory.
 
-3. Run `npm install` to install server dependencies.
+3. Run `npm install` to install dependencies.
 
 ### Compiles and hot-reloads for development
 ```
