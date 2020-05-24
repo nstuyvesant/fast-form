@@ -4,7 +4,7 @@
     .input-group
       input.form-control(type='text', v-model.trim='section.name', placeholder='Section name', aria-describedby='sectionNameFeedback')
       .input-group-append
-        button.btn.btn-danger(@click.prevent='sectionDelete')
+        button.btn.btn-danger(@click.prevent='sectionDelete', type='button')
           fa(:icon='["fas", "trash-alt"]')
           | &nbsp; Delete Section
       .invalid-feedback#sectionNameFeedback You must provide a name for this section.
