@@ -1,3 +1,3 @@
 # Product Backlog
-* [Chore] Show validation errors from Vuelidate (already in place) when user clicks Add Subsection, Add Section, or Download
+* [Chore] Show veulidate validation errors if user clicks Download button (and prevent download)
 * [Chore] Design Cypress E2E tests
