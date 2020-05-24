@@ -2,7 +2,8 @@
 .container.mt-3
   form(novalidate='', autocomplete='off')
     .form-group
-      input.form-control(type='text', v-model.trim='name', autofocus, placeholder='Name of form', maxlength='80')
+      input.form-control(type='text', v-model.trim='name', autofocus, placeholder='Name of form', maxlength='80', aria-describedby='formNameFeedback')
+      .invalid-feedback#formNameFeedback You must provide a name for this form.
 
     SectionEditor(v-for='(section, index) in sections', :section='section', :index='index', :key='section.id', v-on:delete='sectionDelete')
 

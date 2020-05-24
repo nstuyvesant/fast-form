@@ -2,11 +2,12 @@
 .card
   .card-header
     .input-group
-      input.form-control(type='text', v-model.trim='section.name', placeholder='Section name')
+      input.form-control(type='text', v-model.trim='section.name', placeholder='Section name', aria-describedby='sectionNameFeedback')
       .input-group-append
         button.btn.btn-danger(@click.prevent='sectionDelete')
           fa(:icon='["fas", "trash-alt"]')
           | &nbsp; Delete Section
+      .invalid-feedback#sectionNameFeedback You must provide a name for this section.
   .card-body
     .card-text
       .form-group

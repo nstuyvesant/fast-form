@@ -4,7 +4,7 @@
     .input-group-prepend
       .input-group-text
           input(type='checkbox', v-model='question.required', aria-label='Required', alt='Required')
-    input.form-control.fifty-three(type='text', v-model.trim='question.label', aria-label='Question')
+    input.form-control.fifty-three(type='text', v-model.trim='question.label', aria-label='Question', aria-describedby='questionLabelFeedback')
     select.custom-select(v-model='question.dataType')
       option Checkbox
       option Checkbox Group
@@ -43,6 +43,7 @@
         b-dropdown-item(@click='questionDelete')
           fa.text-danger(:icon='["fas", "trash-alt"]')
           | &nbsp; Delete
+  .invalid-feedback#questionLabelFeedback You must provide a label for this question.
 
   b-modal(:id='modalName(question.id)', title='Edit List Values', @ok='rawValuesParse')
     textarea.form-control(rows=5, v-model.trim='rawValues', autofocus='')
