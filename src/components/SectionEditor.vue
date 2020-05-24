@@ -16,8 +16,8 @@
             button.btn.btn-primary(@click='rawQuestionsParse', type='button')
               fa(:icon='["fas", "check"]')
       
-      QuestionEditor(v-for='(question, index) in section.questions', :question='question', :index='index', v-on:delete='questionDelete')
-      SectionEditor(v-for='(subsection, index) in section.subsections', :section='subsection', :index='index', v-on:delete='subsectionDelete')
+      QuestionEditor(v-for='(question, index) in section.questions', :question='question', :index='index', :key='question.id', s v-on:delete='questionDelete')
+      SectionEditor(v-for='(subsection, index) in section.subsections', :section='subsection', :index='index', :key='subsection.id', v-on:delete='subsectionDelete')
 
       button.btn.btn-success(@click='subsectionAdd', type='button')
         fa(:icon='["fas", "plus-circle"]') 
@@ -28,6 +28,7 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { Section } from "@/types";
 import { required, minLength } from "vuelidate/lib/validators";
+import { mutations } from "@/store";
 
 @Component({
   validations: {
@@ -64,6 +65,7 @@ export default class SectionEditor extends Vue {
 
   private subsectionAdd(): void {
     const subsection: Section = {
+      id: mutations.nextId(),
       name: `Subsection ${this.section.subsections.length + 1}`,
       questions: [],
       subsections: [],
@@ -81,6 +83,7 @@ export default class SectionEditor extends Vue {
       for (const label of labels) {
         if (label !== "") {
           this.section.questions.push({
+            id: mutations.nextId(),
             required: false,
             label,
             dataType: this.dataTypeDefault,

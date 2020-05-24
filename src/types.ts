@@ -1,4 +1,5 @@
 export interface Question {
+  id: number;
   required: boolean;
   label: string;
   dataType: string;
@@ -6,6 +7,7 @@ export interface Question {
 }
 
 export interface Section {
+  id: number;
   name: string;
   questions: Question[];
   subsections: Section[];
@@ -13,6 +15,7 @@ export interface Section {
 
 export interface Form {
   name: string;
+  nextId: number;
   sections: Section[];
 }
 

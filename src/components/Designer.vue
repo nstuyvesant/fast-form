@@ -4,7 +4,7 @@
     .form-group
       input.form-control(type='text', v-model.trim='name', autofocus, placeholder='Name of form', maxlength='80')
 
-    SectionEditor(v-for='(section, index) in sections', :section='section', :index='index', v-on:delete='sectionDelete')
+    SectionEditor(v-for='(section, index) in sections', :section='section', :index='index', :key='section.id', v-on:delete='sectionDelete')
 
     button.btn.btn-success(@click='sectionAdd', type='button')
       fa(:icon='["fas", "plus-circle"]')
@@ -47,6 +47,7 @@ export default class Designer extends Vue {
   private sectionAdd(): void {
     const section: Section = {
       name: `Section ${store.data.sections.length + 1}`,
+      id: mutations.nextId(),
       questions: [],
       subsections: [],
     };
