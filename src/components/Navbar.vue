@@ -16,6 +16,7 @@ nav.navbar.navbar-dark.bg-dark
 </template>
 
 <script lang="ts">
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { Component, Vue } from "vue-property-decorator";
 import { store, mutations } from "@/store";
 
@@ -23,7 +24,7 @@ import { store, mutations } from "@/store";
 export default class Navbar extends Vue {
   private files: string[] = [];
 
-  // Read JSON file into store 
+  // Read JSON file into store
   private upload(event: any): void {
     const files: FileList = event.target.files;
     if (files.length <= 0) return;
