@@ -52,8 +52,13 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { Question } from "@/types";
 import { mutations } from "@/store";
+import { required } from "vuelidate/lib/validators";
 
-@Component
+@Component({
+  validations: {
+    label: { required },
+  },
+})
 export default class QuestionEditor extends Vue {
   @Prop({
     default: {
@@ -68,7 +73,7 @@ export default class QuestionEditor extends Vue {
 
   @Prop(Number) readonly index: number | undefined;
 
-  // Create unique modal name/id corresponding to the question's id  
+  // Create unique modal name/id corresponding to the question's id
   private modalName(id: number): string {
     return `modal${id}`;
   }
