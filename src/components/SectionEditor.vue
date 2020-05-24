@@ -4,7 +4,7 @@
     .input-group
       input.form-control(type='text', v-model.trim='section.name', placeholder='Section name')
       .input-group-append
-        button.btn.btn-danger(@click='sectionDelete')
+        button.btn.btn-danger(@click.prevent='sectionDelete')
           fa(:icon='["fas", "trash-alt"]')
           | &nbsp; Delete Section
   .card-body
@@ -26,7 +26,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { mutations, store } from "@/store";
 import { Section } from "@/types";
 import { required, minLength } from "vuelidate/lib/validators";
 
@@ -57,7 +56,6 @@ export default class SectionEditor extends Vue {
 
   private sectionDelete(): void {
     this.$emit("delete", this.index);
-    console.log("Section Delete", this.section);
   }
 
   private questionDelete(index: number): void {
@@ -73,9 +71,8 @@ export default class SectionEditor extends Vue {
     this.section.subsections.push(subsection);
   }
 
-  private subsectionDelete(sectionIndex: number, index: number): void {
-    console.log("Subsection DELETE");
-    // mutations.subsectionDelete(sectionIndex, index);
+  private subsectionDelete(index: number): void {
+    this.section.subsections.splice(index, 1);
   }
 
   private rawQuestionsParse(): void {
