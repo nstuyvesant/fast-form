@@ -15,7 +15,7 @@ generates can be imported into LC360.
 
 - [Git](https://git-scm.com/) (on macOS `brew install git`)
 - [Node.js 14.3.0 and npm 6.14.5](nodejs.org) (on macOS `brew install node`)
-- [Chrome >= 80] (`brew install Caskroom/versions/google-chrome`) - used for headless testing
+- [Google Chrome >= 80] (`brew install Caskroom/versions/google-chrome`) - used for headless testing
 
 ### Project setup
 
