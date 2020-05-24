@@ -16,16 +16,14 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Section } from "@/types";
 import { store, mutations } from "@/store";
-import { required, minLength } from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
 
 // See http://vue-form-builder.sethphat.com/#/template/config/ for alternate example
 
 @Component({
   validations: {
     name: { required },
-    sections: {
-      minLength: minLength(1),
-    },
+    sections: { required },
   },
 })
 export default class Designer extends Vue {
@@ -35,6 +33,9 @@ export default class Designer extends Vue {
 
   private set name(name: string) {
     mutations.nameSet(name);
+    this.$v.name.$touch();
+    if (this.$v.name.$dirty && this.$v.name.$invalid)
+      console.log("Form name is dirty and invalid", this.$v);
   }
 
   private get sections(): Section[] {
@@ -44,6 +45,9 @@ export default class Designer extends Vue {
   // Handler for delete event emitted from child section
   private sectionDelete(index: number): void {
     mutations.sectionDelete(index);
+    this.$v.sections.$touch();
+    if (this.$v.sections.$dirty && this.$v.sections.$invalid)
+      console.log("Sections array is dirty and invalid", this.$v);
   }
 
   // Add a new section using the next id from the store

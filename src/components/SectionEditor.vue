@@ -28,16 +28,14 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { Section } from "@/types";
-import { required, minLength } from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
 import { mutations } from "@/store";
 
 @Component({
   validations: {
     section: {
       name: { required },
-      questions: {
-        minLength: minLength(1),
-      },
+      questions: { required },
     },
   },
 })
