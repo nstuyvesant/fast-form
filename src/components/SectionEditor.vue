@@ -99,6 +99,7 @@ export default class SectionEditor extends Vue {
           });
         }
       }
+      this.rawQuestions = "";
     }
   }
 }
