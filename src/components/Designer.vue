@@ -1,8 +1,8 @@
 <template lang="pug">
 .container.mt-3
-  form(novalidate='', autocomplete='off')
-    .form-group
-      input.form-control(type='text', v-model.trim='name', autofocus, placeholder='Name of form', maxlength='80', aria-describedby='formNameFeedback')
+  form(novalidate, autocomplete='off')
+    .form-group(:class="{ 'form-group--error': $v.name.$error }")
+      input.form-control(type='text', v-model.trim='name', :autofocus='"autofocus"', placeholder='Name of form', maxlength='80', aria-describedby='formNameFeedback')
       .invalid-feedback#formNameFeedback You must provide a name for this form.
 
     SectionEditor(v-for='(section, index) in sections', :section='section', :index='index', :key='section.id', v-on:delete='sectionDelete')
@@ -17,8 +17,6 @@ import { Component, Vue } from "vue-property-decorator";
 import { Section } from "@/types";
 import { store, mutations } from "@/store";
 import { required } from "vuelidate/lib/validators";
-
-// See http://vue-form-builder.sethphat.com/#/template/config/ for alternate example
 
 @Component({
   validations: {
@@ -66,5 +64,8 @@ export default class Designer extends Vue {
 <style lang="scss">
 .card {
   margin-bottom: 20px;
+}
+.is-invalid {
+  color: red;
 }
 </style>
