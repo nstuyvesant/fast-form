@@ -13,7 +13,7 @@ See http://vue-form-builder.sethphat.com/#/template/config/ for alternate exampl
 
 ## Getting Started
 
-### Prerequesites
+### Prerequisites
 
 - [Homebrew](https://brew.sh) - macOS users
 - [Chocolatey](https://chocolatey.org) - Windows users
@@ -37,19 +37,19 @@ See http://vue-form-builder.sethphat.com/#/template/config/ for alternate exampl
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Run end-to-end tests using Cypress
 ```
-npm run build
+npm run test:e2e
 ```
 
-### Run your unit tests using Jest
+### Run unit tests using Jest
 ```
 npm run test:unit
 ```
 
-### Run your end-to-end tests using Cypress
+### Compiles and minifies for production
 ```
-npm run test:e2e
+npm run build
 ```
 
 ### Lints and fixes files
