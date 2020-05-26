@@ -16,7 +16,7 @@ See http://vue-form-builder.sethphat.com/#/template/config/ for alternate exampl
 ### Prerequesites
 
 - [Git](https://git-scm.com/) and [Node.js 14.3.0 and npm 6.14.5](nodejs.org) (macOS `brew install git node`)
-- [Google Chrome >= 80] (macOS `brew install Caskroom/versions/google-chrome`) - used for headless testing
+- [Google Chrome](https://www.google.com/chrome) >= 80 (macOS `brew install Caskroom/versions/google-chrome`) - used for headless testing
 
 ### Project setup
 
