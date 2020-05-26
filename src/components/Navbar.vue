@@ -8,7 +8,7 @@ nav.navbar.navbar-dark.bg-dark
       label.btn.btn-outline-warning.upload(for='upload')
         fa(:icon='["fas", "upload"]') 
         | &nbsp; Upload
-        input(type='file', accept='application/JSON', @change='upload')
+        input(id='upload', type='file', accept='application/JSON', @change='upload')
       button.btn.btn-outline-primary.ml-2(id='preview', type='button', @click='preview')
         fa(:icon='["fas", "eye"]') 
         | &nbsp; Preview
