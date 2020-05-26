@@ -40,12 +40,13 @@ export default class QuestionEditor extends Vue {
 
   private options: string[] = [
     "Checkbox",
-    "Checkbox Group",
-    "Checkbox Group - Heating Types",
-    "Checkbox Group - Roofing Materials",
-    "Checkbox Group - Roofing Styles",
-    "Checkbox Group - Flooring Materials",
+    "Checkboxes",
+    "Checkboxes - Heating Types",
+    "Checkboxes - Roofing Materials",
+    "Checkboxes - Roofing Styles",
+    "Checkboxes - Flooring Materials",
     "Currency(8,2) - $",
+    "Currency(8,2) - €",
     "Date",
     "Email",
     "Feet(5,0)",
@@ -57,12 +58,13 @@ export default class QuestionEditor extends Vue {
     "Percentage(3,2)",
     "Percentage(3,0)",
     "Phone",
-    "Picklist",
-    "Picklist - US States",
-    "Radio Group",
-    "Radio Group - Architectural Style",
-    "Radio Group - Garage Type",
-    "Radio Group - Yes/No",
+    "Dropdown",
+    "Dropdown - US States",
+    "Dropdown - CA Provinces",
+    "Radios",
+    "Radios - Architectural Style",
+    "Radios - Garage Type",
+    "Radios - Yes/No",
     "Square Feet(10,0)",
     "Square Feet(10,2)",
     "Static HTML",
@@ -104,6 +106,6 @@ export default class QuestionEditor extends Vue {
 
 <style scoped lang="scss">
 .fifty-three {
-  width: 53%;
+  width: 47%;
 }
 </style>
