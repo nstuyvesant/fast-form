@@ -15,8 +15,14 @@ See http://vue-form-builder.sethphat.com/#/template/config/ for alternate exampl
 
 ### Prerequesites
 
-- [Git](https://git-scm.com/) and [Node.js 14.3.0 and npm 6.14.5](nodejs.org) (macOS `brew install git node`)
-- [Google Chrome](https://www.google.com/chrome) >= 80 (macOS `brew install Caskroom/versions/google-chrome`) - used for headless testing
+- [Homebrew](https://brew.sh) - macOS users
+- [Chocolatey](https://chocolatey.org) - Windows users
+- [Git](https://git-scm.com/)
+- [Node.js 14.3.0+, npm 6.14.5+](nodejs.org)
+- [yarn 1.22.4+](https://classic.yarnpkg.com/en/)
+- [Google Chrome 83+](https://www.google.com/chrome) - used for headless testing
+- macOS install: `brew install git node yarn Caskroom/versions/google-chrome`
+- Windows install: `choco install git nodejs yarn googlechrome`
 
 ### Project setup
 
@@ -24,7 +30,7 @@ See http://vue-form-builder.sethphat.com/#/template/config/ for alternate exampl
 
 2. Run `git clone https://github.com/nstuyvesant/fast-form.git` then connect to the /fast-form directory.
 
-3. Run `npm install` to install dependencies.
+3. Run `yarn install` to install dependencies.
 
 ### Compiles and hot-reloads for development
 ```

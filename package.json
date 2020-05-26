@@ -92,5 +92,8 @@
   ],
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
+  },
+  "resolutions": {
+    "cypress": "^4.6.0"
   }
 }
