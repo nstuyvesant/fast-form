@@ -38,7 +38,7 @@
     .input-group-append
       b-dropdown(text='', variant='outline-secondary', size='sm')
         b-dropdown-item(v-b-modal='modalName(question.id)')
-          fa.text-danger(:icon='["fas", "edit"]')
+          fa.text-secondary(:icon='["fas", "edit"]')
           | &nbsp; Edit Values
         b-dropdown-item(@click='questionDelete')
           fa.text-danger(:icon='["fas", "trash-alt"]')
@@ -53,13 +53,8 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { Question } from "@/types";
 import { mutations } from "@/store";
-import { required } from "vuelidate/lib/validators";
 
-@Component({
-  validations: {
-    label: { required },
-  },
-})
+@Component
 export default class QuestionEditor extends Vue {
   @Prop({
     default: {

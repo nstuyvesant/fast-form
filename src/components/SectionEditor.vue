@@ -1,20 +1,20 @@
 <template lang="pug">
 .card
   .card-header
-    .input-group
-      input.form-control(type='text', v-model.trim='section.name', placeholder='Section name', aria-describedby='sectionNameFeedback')
-      .input-group-append
-        button.btn.btn-danger(@click.prevent='sectionDelete', type='button')
-          fa(:icon='["fas", "trash-alt"]')
-          | &nbsp; Delete Section
-      .invalid-feedback#sectionNameFeedback You must provide a name for this section.
+      b-input-group
+        b-form-input(v-model.trim='section.name', :state='!!section.name', placeholder='Section name', maxlength='80', aria-describedby='sectionNameFeedback')
+        b-input-group-append
+          b-button(@click.prevent='sectionDelete', variant='danger')
+            fa(:icon='["fas", "trash-alt"]')
+            | &nbsp; Delete Section
+      b-form-invalid-feedback#sectionNameFeedback(:state='!!section.name') You must provide a name for this section.
   .card-body
     .card-text
       .form-group
         .input-group
           textarea.form-control(v-model.trim='rawQuestions', rows=6, placeholder='Questions (one per row)')
           .input-group-append
-            button.btn.btn-primary(@click='rawQuestionsParse', type='button')
+            button.btn.btn-secondary(@click='rawQuestionsParse', type='button')
               fa(:icon='["fas", "check"]')
       
       QuestionEditor(v-for='(question, index) in section.questions', :question='question', :index='index', :key='question.id', s v-on:delete='questionDelete')
@@ -28,17 +28,9 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { Section } from "@/types";
-import { required } from "vuelidate/lib/validators";
 import { mutations } from "@/store";
 
-@Component({
-  validations: {
-    section: {
-      name: { required },
-      questions: { required },
-    },
-  },
-})
+@Component
 export default class SectionEditor extends Vue {
   @Prop({
     default: {

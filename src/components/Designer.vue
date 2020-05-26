@@ -1,13 +1,15 @@
 <template lang="pug">
 .container.mt-3
   form(novalidate, autocomplete='off')
-    .form-group(:class="{ 'form-group--error': $v.name.$error }")
-      input.form-control(type='text', v-model.trim='name', :autofocus='"autofocus"', placeholder='Name of form', maxlength='80', aria-describedby='formNameFeedback')
-      .invalid-feedback#formNameFeedback You must provide a name for this form.
+    b-form-group
+      b-form-input(v-model.trim='name', :state='!!name', :autofocus='"autofocus"', placeholder='Name of form', maxlength='80', aria-describedby='formNameFeedback')
+      b-form-invalid-feedback#formNameFeedback You must provide a name for this form.
 
     SectionEditor(v-for='(section, index) in sections', :section='section', :index='index', :key='section.id', v-on:delete='sectionDelete')
 
-    button.btn.btn-success(@click='sectionAdd', type='button')
+    b-form-invalid-feedback.mb-3#sectionFeedback(:state='sections.length !== 0') At least one section must be added.
+
+    button.btn.btn-secondary(@click='sectionAdd', type='button')
       fa(:icon='["fas", "plus-circle"]')
       | &nbsp;Add Section
 </template>
@@ -16,14 +18,8 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Section } from "@/types";
 import { store, mutations } from "@/store";
-import { required } from "vuelidate/lib/validators";
 
-@Component({
-  validations: {
-    name: { required },
-    sections: { required },
-  },
-})
+@Component
 export default class Designer extends Vue {
   private get name(): string {
     return store.data.name;
@@ -31,9 +27,6 @@ export default class Designer extends Vue {
 
   private set name(name: string) {
     mutations.nameSet(name);
-    this.$v.name.$touch();
-    if (this.$v.name.$dirty && this.$v.name.$invalid)
-      console.log("Form name is dirty and invalid", this.$v);
   }
 
   private get sections(): Section[] {
@@ -43,9 +36,6 @@ export default class Designer extends Vue {
   // Handler for delete event emitted from child section
   private sectionDelete(index: number): void {
     mutations.sectionDelete(index);
-    this.$v.sections.$touch();
-    if (this.$v.sections.$dirty && this.$v.sections.$invalid)
-      console.log("Sections array is dirty and invalid", this.$v);
   }
 
   // Add a new section using the next id from the store
@@ -64,8 +54,5 @@ export default class Designer extends Vue {
 <style lang="scss">
 .card {
   margin-bottom: 20px;
-}
-.is-invalid {
-  color: red;
 }
 </style>

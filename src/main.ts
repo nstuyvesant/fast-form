@@ -1,7 +1,6 @@
 // import "@babel/polyfill";
 import "mutationobserver-shim";
 import Vue from "vue";
-import Vuelidate from "vuelidate";
 import "./plugins/bootstrap-vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
@@ -18,8 +17,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import SectionEditor from "@/components/SectionEditor.vue";
 import QuestionEditor from "@/components/QuestionEditor.vue";
-
-Vue.use(Vuelidate);
 
 library.add(
   faCheck,

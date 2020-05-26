@@ -9,6 +9,8 @@ visibilities, validations, and calculations in get the basics of a form
 ready for an interactive session with customers. The JSON exports it
 generates can be imported into LC360.
 
+See http://vue-form-builder.sethphat.com/#/template/config/ for alternate example.
+
 ## Getting Started
 
 ### Prerequesites

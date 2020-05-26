@@ -4,7 +4,7 @@ import { Store, Form, Section } from "@/types";
 // Initial state unless loading a JSON
 export const store: Store = Vue.observable({
   data: {
-    name: "",
+    name: "Form",
     nextId: 2,
     sections: [
       {
