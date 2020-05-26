@@ -5,10 +5,10 @@ nav.navbar.navbar-dark.bg-dark
       img(alt='Utilant logo', src='../assets/logo.png', height=25, width=209)
       | &nbsp;Fast Form Designer
     form.form-inline(novalidate='')
-      label.btn.btn-outline-warning(for='upload')
+      label.btn.btn-outline-warning.upload(for='upload')
         fa(:icon='["fas", "upload"]') 
         | &nbsp; Upload
-        input(id='upload', type='file', accept='application/JSON', @change='upload')
+        input(type='file', accept='application/JSON', @change='upload')
       button.btn.btn-outline-primary.ml-2(id='preview', type='button', @click='preview')
         fa(:icon='["fas", "eye"]') 
         | &nbsp; Preview

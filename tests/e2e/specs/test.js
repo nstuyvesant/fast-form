@@ -1,6 +1,6 @@
 // https://docs.cypress.io/api/introduction/api.html
 
-describe("Initial test", () => {
+describe("E2E testing of Fast Form Designer", () => {
   it("Visits the app root url and ensures default content is there", () => {
     cy.visit("/");
     // Validate default content
@@ -112,8 +112,10 @@ describe("Initial test", () => {
     })  
   });
 
-  // Download JSON of form
-
-  // Refresh webpage then Upload JSON and verify it loaded
-
+  it("Download JSON, reload page to clear, Upload JSON and verify everything works", () => {
+    cy.get("#download").click();
+    cy.reload();
+    cy.get(".upload").click();
+    // TODO: upload form.json from Downloads folder where the earlier step deposited form
+  });
 });
