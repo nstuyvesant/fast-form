@@ -1,0 +1,70 @@
+{
+	"name": "High-Value Home",
+	"nextId": 13,
+	"sections": [{
+		"id": 1,
+		"name": "Construction Details",
+		"questions": [{
+			"id": 3,
+			"required": false,
+			"label": "What year was the house built?",
+			"dataType": "Year",
+			"values": []
+		}, {
+			"id": 4,
+			"required": false,
+			"label": "What is its architectural style?",
+			"dataType": "Picklist",
+			"values": ["Cape Cod", "Colonial", "Cottage", "Craftsman", "Georgian", "Greek Revival", "Shingle", "Victorian"]
+		}, {
+			"id": 5,
+			"required": false,
+			"label": "How many furnaces?",
+			"dataType": "Number(10,0)",
+			"values": []
+		}, {
+			"id": 6,
+			"required": false,
+			"label": "Central Air Conditioning?",
+			"dataType": "Radio Group - Yes/No",
+			"values": []
+		}, {
+			"id": 7,
+			"required": false,
+			"label": "What type of heating?",
+			"dataType": "Checkbox Group",
+			"values": ["Electric", "Geothermal", "Natural Gas", "Nuclear", "Propane", "Solar"]
+		}, {
+			"id": 8,
+			"required": false,
+			"label": "What type of roof?",
+			"dataType": "Radio Group",
+			"values": ["Asphalt", "Composite", "Shake", "Slate", "Solar", "Terracotta"]
+		}, {
+			"id": 9,
+			"required": false,
+			"label": "Does it have a garage?",
+			"dataType": "Radio Group - Yes/No",
+			"values": []
+		}, {
+			"id": 10,
+			"required": false,
+			"label": "If so, for how many cars?",
+			"dataType": "Number(10,0)",
+			"values": []
+		}, {
+			"id": 11,
+			"required": false,
+			"label": "Garage type:",
+			"dataType": "Radio Group",
+			"values": ["Attached", "Detached"]
+		}, {
+			"id": 12,
+			"required": false,
+			"label": "Floor materials:",
+			"dataType": "Checkbox Group",
+			"values": ["Carpet", "Concrete", "Hardwood", "Hardwood (ornate)", "Tile", "Tile (upscale)"]
+		}],
+		"subsections": []
+	}]
+}
