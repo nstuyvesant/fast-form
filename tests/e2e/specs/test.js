@@ -117,5 +117,13 @@ describe("E2E testing of Fast Form Designer", () => {
     cy.reload();
     cy.get(".upload").click();
     // TODO: upload form.json from Downloads folder where the earlier step deposited form
+    // cy.fixture('path/to/image.png').as('logo')
+    //   .get('input[type=file]').then(function(el) {
+    //     return Cypress.Blob.base64StringToBlob(this.logo, 'image/png')
+    //       .then(blob => {
+    //         el[0].files[0] = blob
+    //         el[0].dispatchEvent(new Event('change', {bubbles: true}))
+    //       })
+    //   });
   });
 });
