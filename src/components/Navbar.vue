@@ -6,25 +6,26 @@ nav.navbar.navbar-dark.bg-dark
       | &nbsp;Fast Form Designer
     form.form-inline(novalidate='')
       label.btn.btn-outline-warning.upload(for='upload')
-        fa(:icon='["fas", "upload"]') 
-        | &nbsp; Upload
-        input(id='upload', type='file', accept='application/JSON', @change='upload')
+        fa.mr-1(:icon='["fas", "upload"]') 
+        | Upload
+        input(id='upload', ref='uploadInput', type='file', accept='application/JSON', @change='upload')
       button.btn.btn-outline-primary.ml-2(id='preview', type='button', @click='preview')
-        fa(:icon='["fas", "eye"]') 
-        | &nbsp; Preview
+        fa.mr-1(:icon='["fas", "eye"]') 
+        | Preview
       button.btn.btn-outline-success.ml-2(id='download', type='button', @click='download')
-        fa(:icon='["fas", "cloud-download-alt"]') 
-        | &nbsp; Download
+        fa.mr-1(:icon='["fas", "cloud-download-alt"]') 
+        | Download
 </template>
 
 <script lang="ts">
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Ref } from "vue-property-decorator";
 import { store, mutations } from "@/store";
 
 @Component
 export default class Navbar extends Vue {
-  private files: string[] = [];
+  @Ref()
+  uploadInput!: HTMLInputElement;
 
   // Read JSON file into store
   private upload(event: any): void {
@@ -35,6 +36,9 @@ export default class Navbar extends Vue {
       const resultJSON: any = reader.result;
       const result = JSON.parse(resultJSON);
       mutations.storeDataSet(result);
+      // Hack to reset file input's state so change event will work
+      this.uploadInput.type = "text";
+      this.uploadInput.type = "file";
     };
     reader.readAsText(files[0]);
   }
