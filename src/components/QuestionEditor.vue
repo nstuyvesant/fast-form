@@ -7,7 +7,7 @@
     b-form-input.fifty-three(v-model.trim='question.label', :state='!!question.label', aria-label='Question', aria-describedby='questionLabelFeedback')
     b-form-select.custom-select(v-model='question.dataType', :options='options')
     .input-group-append
-      b-dropdown.dropdown(text='', variant='outline-secondary', size='sm')
+      b-dropdown.dropdown(text='', variant='outline-secondary', right, size='sm')
         b-dropdown-item.edit(v-b-modal='modalName(question.id)')
           fa.text-secondary(:icon='["fas", "edit"]')
           | &nbsp; Edit Values
