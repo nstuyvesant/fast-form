@@ -2,14 +2,14 @@
 .container.mt-3
   form(novalidate, autocomplete='off')
     b-form-group
-      b-form-input(v-model.trim='name', :state='!!name', :autofocus='"autofocus"', placeholder='Name of form', maxlength='80', aria-describedby='formNameFeedback')
+      b-form-input(id='name', v-model.trim='name', :state='!!name', :autofocus='"autofocus"', placeholder='Name of form', maxlength='80', aria-describedby='formNameFeedback')
       b-form-invalid-feedback#formNameFeedback You must provide a name for this form.
 
     SectionEditor(v-for='(section, index) in sections', :section='section', :index='index', :key='section.id', v-on:delete='sectionDelete')
 
     b-form-invalid-feedback.mb-3#sectionFeedback(:state='sections.length !== 0') At least one section must be added.
 
-    button.btn.btn-secondary(@click='sectionAdd', type='button')
+    button.btn.btn-secondary.add-section(@click='sectionAdd', type='button')
       fa(:icon='["fas", "plus-circle"]')
       | &nbsp;Add Section
 </template>

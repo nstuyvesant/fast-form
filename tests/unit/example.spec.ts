@@ -1,10 +1,10 @@
 import { shallowMount } from "@vue/test-utils";
-import HelloWorld from "@/components/HelloWorld.vue";
+import Designer from "@/components/Designer.vue";
 
-describe("HelloWorld.vue", () => {
-  it("renders props.msg when passed", () => {
+describe("Designer.vue", () => {
+  it("renders form with  name and one section by default", () => {
     const msg = "new message";
-    const wrapper = shallowMount(HelloWorld, {
+    const wrapper = shallowMount(Designer, {
       propsData: { msg },
     });
     expect(wrapper.text()).toMatch(msg);

@@ -2,9 +2,9 @@
 .card
   .card-header
       b-input-group
-        b-form-input(v-model.trim='section.name', :state='!!section.name', placeholder='Section name', maxlength='80', aria-describedby='sectionNameFeedback')
+        b-form-input(id='sectionName', v-model.trim='section.name', :state='!!section.name', placeholder='Section name', maxlength='80', aria-describedby='sectionNameFeedback')
         b-input-group-append
-          b-button(@click.prevent='sectionDelete', variant='danger')
+          b-button.delete-section(@click.prevent='sectionDelete', variant='danger')
             fa(:icon='["fas", "trash-alt"]')
             | &nbsp; Delete Section
       b-form-invalid-feedback#sectionNameFeedback(:state='!!section.name') You must provide a name for this section.
