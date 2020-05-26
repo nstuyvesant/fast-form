@@ -32,7 +32,7 @@ See http://vue-form-builder.sethphat.com/#/template/config/ for alternate exampl
 
 3. Run `yarn install` to install dependencies.
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads development webserver
 ```
 npm run serve
 ```
