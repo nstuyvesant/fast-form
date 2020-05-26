@@ -12,9 +12,9 @@
     .card-text
       .form-group
         .input-group
-          textarea.form-control(v-model.trim='rawQuestions', rows=6, placeholder='Questions (one per row)')
+          textarea.form-control.questions(v-model.trim='rawQuestions', rows=6, placeholder='Questions (one per row)')
           .input-group-append
-            button.btn.btn-secondary(@click='rawQuestionsParse', type='button')
+            button.btn.btn-secondary.check(@click='rawQuestionsParse', type='button')
               fa(:icon='["fas", "check"]')
       
       QuestionEditor(v-for='(question, index) in section.questions', :question='question', :index='index', :key='question.id', s v-on:delete='questionDelete')

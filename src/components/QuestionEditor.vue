@@ -3,21 +3,21 @@
   .input-group.input-group-sm
     .input-group-prepend
       .input-group-text
-          input(type='checkbox', v-model='question.required', aria-label='Required', alt='Required')
+          input.required(type='checkbox', v-model='question.required', aria-label='Required', alt='Required')
     b-form-input.fifty-three(v-model.trim='question.label', :state='!!question.label', aria-label='Question', aria-describedby='questionLabelFeedback')
     b-form-select.custom-select(v-model='question.dataType', :options='options')
     .input-group-append
-      b-dropdown(text='', variant='outline-secondary', size='sm')
-        b-dropdown-item(v-b-modal='modalName(question.id)')
+      b-dropdown.dropdown(text='', variant='outline-secondary', size='sm')
+        b-dropdown-item.edit(v-b-modal='modalName(question.id)')
           fa.text-secondary(:icon='["fas", "edit"]')
           | &nbsp; Edit Values
-        b-dropdown-item(@click='questionDelete')
+        b-dropdown-item.delete(@click='questionDelete')
           fa.text-danger(:icon='["fas", "trash-alt"]')
           | &nbsp; Delete
   b-form-invalid-feedback#questionLabelFeedback(:state='!!question.label') You must provide a label for this question.
 
   b-modal(:id='modalName(question.id)', title='Edit List Values', @ok='rawValuesParse')
-    textarea.form-control(rows=5, v-model.trim='rawValues', autofocus='')
+    textarea.form-control.values(rows=5, v-model.trim='rawValues', autofocus='')
 </template>
 
 <script lang="ts">

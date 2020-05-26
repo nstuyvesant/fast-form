@@ -9,10 +9,10 @@ nav.navbar.navbar-dark.bg-dark
         fa(:icon='["fas", "upload"]') 
         | &nbsp; Upload
         input(id='upload', type='file', accept='application/JSON', @change='upload')
-      button.btn.btn-outline-primary.ml-2(type='button', @click='preview')
+      button.btn.btn-outline-primary.ml-2(id='preview', type='button', @click='preview')
         fa(:icon='["fas", "eye"]') 
         | &nbsp; Preview
-      button.btn.btn-outline-success.ml-2(type='button', @click='download')
+      button.btn.btn-outline-success.ml-2(id='download', type='button', @click='download')
         fa(:icon='["fas", "cloud-download-alt"]') 
         | &nbsp; Download
 </template>
