@@ -117,7 +117,7 @@ describe("E2E testing of Fast Form Designer", () => {
     cy.reload();
     cy.get(".upload").click();
     // TODO: upload form.json from Downloads folder where the earlier step deposited form
-    // cy.fixture('~/downloads/form.json').as('form')
+    // cy.fixture('~/Downloads/form.json').as('form')
     //   .get('input[type=file]').then(function(el) {
     //     return Cypress.Blob.base64StringToBlob(this.form, 'text/plain')
     //       .then(blob => {
