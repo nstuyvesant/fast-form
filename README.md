@@ -37,12 +37,12 @@ npm run serve
 npm run build
 ```
 
-### Run your unit tests
+### Run your unit tests using Jest
 ```
 npm run test:unit
 ```
 
-### Run your end-to-end tests
+### Run your end-to-end tests using Cypress
 ```
 npm run test:e2e
 ```
@@ -54,7 +54,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
 
 [vue.js]: https://img.shields.io/badge/vue.js-2.6.11-green.svg
 [vue.js-url]: https://vuejs.org/

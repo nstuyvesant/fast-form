@@ -4,37 +4,8 @@
     .input-group-prepend
       .input-group-text
           input(type='checkbox', v-model='question.required', aria-label='Required', alt='Required')
-    input.form-control.fifty-three(type='text', v-model.trim='question.label', aria-label='Question', aria-describedby='questionLabelFeedback')
-    select.custom-select(v-model='question.dataType')
-      option Checkbox
-      option Checkbox Group
-      option Currency(8,2) - $
-      option Date
-      option Email
-      option Feet(5,0)
-      option Feet(5,2)
-      option Miles(3,1)
-      option Minutes(2,0)
-      option Number(10,0)
-      option Number(10,2)
-      option Percentage(3,2)
-      option Percentage(3,0)
-      option Phone
-      option Picklist
-      option Picklist - US States
-      option Radio Group
-      option Radio Group - Yes/No
-      option Square Feet(10,0)
-      option Square Feet(10,2)
-      option Static HTML
-      option Text
-      option(selected) TextArea(3 rows)
-      option TextArea(8 rows)
-      option URL
-      option Year
-      option Years(3)
-      option ZIP Code
-      option ZIP Code +4
+    b-form-input.fifty-three(v-model.trim='question.label', :state='!!question.label', aria-label='Question', aria-describedby='questionLabelFeedback')
+    b-form-select.custom-select(v-model='question.dataType', :options='options')
     .input-group-append
       b-dropdown(text='', variant='outline-secondary', size='sm')
         b-dropdown-item(v-b-modal='modalName(question.id)')
@@ -43,7 +14,7 @@
         b-dropdown-item(@click='questionDelete')
           fa.text-danger(:icon='["fas", "trash-alt"]')
           | &nbsp; Delete
-  .invalid-feedback#questionLabelFeedback You must provide a label for this question.
+  b-form-invalid-feedback#questionLabelFeedback(:state='!!question.label') You must provide a label for this question.
 
   b-modal(:id='modalName(question.id)', title='Edit List Values', @ok='rawValuesParse')
     textarea.form-control(rows=5, v-model.trim='rawValues', autofocus='')
@@ -66,6 +37,38 @@ export default class QuestionEditor extends Vue {
     },
   })
   private question!: Question;
+
+  private options: string[] = [
+    "Checkbox",
+    "Checkbox Group",
+    "Currency(8,2) - $",
+    "Date",
+    "Email",
+    "Feet(5,0)",
+    "Feet(5,2)",
+    "Miles(3,1)",
+    "Minutes(2,0)",
+    "Number(10,0)",
+    "Number(10,2)",
+    "Percentage(3,2)",
+    "Percentage(3,0)",
+    "Phone",
+    "Picklist",
+    "Picklist - US States",
+    "Radio Group",
+    "Radio Group - Yes/No",
+    "Square Feet(10,0)",
+    "Square Feet(10,2)",
+    "Static HTML",
+    "Text",
+    "TextArea(3 rows)",
+    "TextArea(8 rows)",
+    "URL",
+    "Year",
+    "Years(3)",
+    "ZIP Code",
+    "ZIP Code +4",
+  ];
 
   @Prop(Number) readonly index: number | undefined;
 

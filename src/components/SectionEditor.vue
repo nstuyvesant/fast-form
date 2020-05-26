@@ -18,6 +18,8 @@
               fa(:icon='["fas", "check"]')
       
       QuestionEditor(v-for='(question, index) in section.questions', :question='question', :index='index', :key='question.id', s v-on:delete='questionDelete')
+      b-form-invalid-feedback.mb-3#questionsFeedback(:state='section.questions.length !== 0') At least one question must be added.
+
       SectionEditor(v-for='(subsection, index) in section.subsections', :section='subsection', :index='index', :key='subsection.id', v-on:delete='subsectionDelete')
 
       button.btn.btn-success(@click='subsectionAdd', type='button')
