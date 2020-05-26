@@ -1,7 +1,9 @@
 <template lang="pug">
 nav.navbar.navbar-dark.bg-dark
   .container
-    .navbar-brand Fast Form
+    .navbar-brand 
+      img(alt='Utilant logo', src='../assets/logo.png', height=60, width=324)
+      | &nbsp;Fast Form Designer
     form.form-inline(novalidate='')
       label.btn.btn-outline-warning(for='upload')
         fa(:icon='["fas", "upload"]') 
