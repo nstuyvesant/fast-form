@@ -14,7 +14,7 @@
 			"id": 4,
 			"required": false,
 			"label": "What is its architectural style?",
-			"dataType": "Picklist",
+			"dataType": "Radios - Architectural Style",
 			"values": ["Cape Cod", "Colonial", "Cottage", "Craftsman", "Georgian", "Greek Revival", "Shingle", "Victorian"]
 		}, {
 			"id": 5,
@@ -26,25 +26,25 @@
 			"id": 6,
 			"required": false,
 			"label": "Central Air Conditioning?",
-			"dataType": "Radio Group - Yes/No",
+			"dataType": "Radios - Yes/No",
 			"values": []
 		}, {
 			"id": 7,
 			"required": false,
 			"label": "What type of heating?",
-			"dataType": "Checkbox Group",
+			"dataType": "Checkboxes - Heating Types",
 			"values": ["Electric", "Geothermal", "Natural Gas", "Nuclear", "Propane", "Solar"]
 		}, {
 			"id": 8,
 			"required": false,
 			"label": "What type of roof?",
-			"dataType": "Radio Group",
+			"dataType": "Checkboxes - Roofing Materials",
 			"values": ["Asphalt", "Composite", "Shake", "Slate", "Solar", "Terracotta"]
 		}, {
 			"id": 9,
 			"required": false,
 			"label": "Does it have a garage?",
-			"dataType": "Radio Group - Yes/No",
+			"dataType": "Radios - Yes/No",
 			"values": []
 		}, {
 			"id": 10,
@@ -56,13 +56,13 @@
 			"id": 11,
 			"required": false,
 			"label": "Garage type:",
-			"dataType": "Radio Group",
+			"dataType": "Radios - Garage Type",
 			"values": ["Attached", "Detached"]
 		}, {
 			"id": 12,
 			"required": false,
 			"label": "Floor materials:",
-			"dataType": "Checkbox Group",
+			"dataType": "Checkboxes - Flooring Materials",
 			"values": ["Carpet", "Concrete", "Hardwood", "Hardwood (ornate)", "Tile", "Tile (upscale)"]
 		}],
 		"subsections": []
