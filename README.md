@@ -12,18 +12,18 @@ This client-side Single Page Application (SPA) is written in [TypeScript](https:
 needed for development, `npm run build` generates a slug of HTML, JavaScript and CSS that can
 be run with or without a web server (provided your browser allows local JavaScript to execute).
 
-Architecturally, this SPA is structured this way using components:
+Architecturally, the SPA is structured:
 - [App](/src/App.vue)
   - [Navbar](/src/components/Navbar.vue)
   - [Designer](/src/components/Designer.vue)
-    - [SectionEditor](/src/components/SectionEditor.vue) (used recursively)
-      - [QuestionEditor](/src/components/QuestionEditor.vue).
+    - [SectionEditor](/src/components/SectionEditor.vue) (recursive)
+      - [QuestionEditor](/src/components/QuestionEditor.vue)
 
-The initial load is done from [main.ts](/src/main.ts). Application state is managed via Observable in [store.ts](/src/store.ts). TypeScript types are declared in [types.ts](/src/types.ts).
+Initial loading of Vue, [Font Awesome](https://fontawesome.com) and recursive components is in [main.ts](/src/main.ts). Application state is managed via Observable in [store.ts](/src/store.ts). [TypeScript](https://www.typescriptlang.org) types are declared in [types.ts](/src/types.ts).
 
 ## Getting Started
 
-### Prerequisites
+### Development Prerequisites
 
 - [Homebrew](https://brew.sh) - macOS users
 - [Chocolatey](https://chocolatey.org) - Windows users
