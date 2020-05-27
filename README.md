@@ -5,8 +5,7 @@
 The Fast Form Designer is a lightweight form prototyper designed to scaffold
 Dynamic Forms for Loss Control 360 (LC360). The design omits details such as
 visibilities, validations, and calculations in get the basics of a form
-ready for an interactive session with customers. The JSON exports it
-generates will be able to POST into LC360.
+ready for an interactive session with customers. The JSON ([sample-form.json](/public/sample-form.json)) it current downloads will be able to POSTed to LC360 in the future.
 
 This client-side Single Page Application (SPA) is written in [TypeScript](https://www.typescriptlang.org) using the [Vue.js](https://vuejs.org/) framework and [Bootstrap](https://getbootstrap.com) for mobile responsiveness. While [Node.js](https://nodejs.org/en/) is
 needed for development, `npm run build` generates a slug of HTML, JavaScript and CSS that can
