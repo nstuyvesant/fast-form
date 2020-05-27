@@ -1,5 +1,4 @@
 [![vue.js][vue.js]][vue.js-url]
-[![node][node]][node-url]
 
 # Utilant Fast Form Designer
 
@@ -7,9 +6,20 @@ The Fast Form Designer is a lightweight form prototyper designed to scaffold
 Dynamic Forms for Loss Control 360 (LC360). The design omits details such as
 visibilities, validations, and calculations in get the basics of a form
 ready for an interactive session with customers. The JSON exports it
-generates can be imported into LC360.
+generates will be able to POST into LC360.
 
-See http://vue-form-builder.sethphat.com/#/template/config/ for alternate example.
+This client-side Single Page Application (SPA) is written in [TypeScript](https://www.typescriptlang.org) using the [Vue.js](https://vuejs.org/) framework and [Bootstrap](https://getbootstrap.com) for mobile responsiveness. While [Node.js](https://nodejs.org/en/) is
+needed for development, `npm run build` generates a slug of HTML, JavaScript and CSS that can
+be run with or without a web server (provided your browser allows local JavaScript to execute).
+
+Architecturally, this SPA is structured this way using components:
+- [App](/src/App.vue)
+  - [Navbar](/src/components/Navbar.vue)
+  - [Designer](/src/components/Designer.vue)
+    - [SectionEditor](/src/components/SectionEditor.vue) (used recursively)
+      - [QuestionEditor](/src/components/QuestionEditor.vue).
+
+The initial load is done from [main.ts](/src/main.ts). Application state is managed via Observable in [store.ts](/src/store.ts). TypeScript types are declared in [types.ts](/src/types.ts).
 
 ## Getting Started
 
@@ -62,5 +72,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 [vue.js]: https://img.shields.io/badge/vue.js-2.6.11-green.svg
 [vue.js-url]: https://vuejs.org/
-[node]: https://img.shields.io/badge/nodejs-14.3.0-red.svg
-[node-url]: https://nodejs.org
