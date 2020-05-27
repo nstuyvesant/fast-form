@@ -16,7 +16,7 @@ Architecturally, the SPA is structured:
 - [App](/src/App.vue)
   - [Navbar](/src/components/Navbar.vue)
   - [Designer](/src/components/Designer.vue)
-    - [SectionEditor](/src/components/SectionEditor.vue) (recursive)
+    - [SectionEditor](/src/components/SectionEditor.vue) (recursive because of need for subsections)
       - [QuestionEditor](/src/components/QuestionEditor.vue)
 
 Initial loading of Vue, [Font Awesome](https://fontawesome.com) and recursive components is in [main.ts](/src/main.ts). Application state is managed via Observable in [store.ts](/src/store.ts). [TypeScript](https://www.typescriptlang.org) types are declared in [types.ts](/src/types.ts).
@@ -25,18 +25,18 @@ Initial loading of Vue, [Font Awesome](https://fontawesome.com) and recursive co
 
 ### Development Prerequisites
 
+- [Git](https://git-scm.com/)
 - [Homebrew](https://brew.sh) - macOS users
 - [Chocolatey](https://chocolatey.org) - Windows users
-- [Git](https://git-scm.com/)
 - [Node.js 14.3.0+, npm 6.14.5+](nodejs.org)
 - [yarn 1.22.4+](https://classic.yarnpkg.com/en/)
 - [Google Chrome 83+](https://www.google.com/chrome) - used for headless testing
-- macOS install: `brew install git node yarn Caskroom/versions/google-chrome`
-- Windows install: `choco install git nodejs yarn googlechrome`
 
 ### Project setup
 
 1. Make sure prerequisites are installed for your operating system.
+  - macOS install: `brew install git node yarn Caskroom/versions/google-chrome`
+  - Windows install: `choco install git nodejs yarn googlechrome`
 
 2. Run `git clone https://github.com/nstuyvesant/fast-form.git` then connect to the /fast-form directory.
 
