@@ -27,7 +27,7 @@ Initial loading of Vue, [Font Awesome](https://fontawesome.com) and recursive co
 - [Git](https://git-scm.com/)
 - [Homebrew](https://brew.sh) - macOS users
 - [Chocolatey](https://chocolatey.org) - Windows users
-- [Node.js 14.3.0+, npm 6.14.5+](nodejs.org)
+- [Node.js 14.3.0+](nodejs.org)
 - [yarn 1.22.4+](https://classic.yarnpkg.com/en/)
 - [Google Chrome 83+](https://www.google.com/chrome) - used for headless testing
 
@@ -43,27 +43,27 @@ Initial loading of Vue, [Font Awesome](https://fontawesome.com) and recursive co
 
 ### Compiles and hot-reloads development webserver
 ```
-npm run serve
+yarn serve
 ```
 
 ### Run end-to-end tests using Cypress
 ```
-npm run test:e2e
+yarn test:e2e
 ```
 
 ### Run unit tests using Jest
 ```
-npm run test:unit
+yarn test:unit
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn build
 ```
 
 ### Lints and fixes files
 ```
-npm run lint
+yarn lint
 ```
 
 ### Customize configuration

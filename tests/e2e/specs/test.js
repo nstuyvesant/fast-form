@@ -23,7 +23,7 @@ describe("E2E testing of Fast Form Designer", () => {
 
   it("Sets form name and error disappears", () => {
     cy.get("#name").type("Form Test");
-    cy.get("#name").should("have.class","is-valid");
+    cy.get("#name").should("have.class", "is-valid");
   });
 
   it("Clears section name and error appears", () => {
@@ -33,7 +33,7 @@ describe("E2E testing of Fast Form Designer", () => {
 
   it("Sets section name and error disappears", () => {
     cy.get("#sectionName").type("Section Test");
-    cy.get("#sectionName").should("have.class","is-valid");
+    cy.get("#sectionName").should("have.class", "is-valid");
   });
 
   it("Deletes section and error appears", () => {
@@ -55,12 +55,16 @@ describe("E2E testing of Fast Form Designer", () => {
 
   it("Clearing question label shows error", () => {
     cy.get(".fifty-three").first().clear();
-    cy.get("#questionLabelFeedback").first().should("have.css", "display", "block");
+    cy.get("#questionLabelFeedback")
+      .first()
+      .should("have.css", "display", "block");
   });
 
   it("Entering question label makes error disappear", () => {
     cy.get(".fifty-three").first().type("One");
-    cy.get("#questionLabelFeedback").first().should("have.css", "display", "none");
+    cy.get("#questionLabelFeedback")
+      .first()
+      .should("have.css", "display", "none");
   });
 
   it("Deleting question makes row disappear", () => {
@@ -78,7 +82,7 @@ describe("E2E testing of Fast Form Designer", () => {
   it("Edit Values displays modal", () => {
     cy.get(".dropdown").first().click();
     cy.get(".edit").first().click();
-    cy.contains("h5","Edit List Values");
+    cy.contains("h5", "Edit List Values");
   });
 
   it("Typing values into textarea and clicking OK saves array elements", () => {
@@ -87,7 +91,7 @@ describe("E2E testing of Fast Form Designer", () => {
     cy.contains("button", "OK").click();
     cy.get(".dropdown").first().click();
     cy.get(".edit").first().click();
-    cy.get(".values").should("have.value", testData)
+    cy.get(".values").should("have.value", testData);
     cy.contains("button", "OK").click();
   });
 
@@ -103,13 +107,13 @@ describe("E2E testing of Fast Form Designer", () => {
   });
 
   it("Clicking Preview button displays alert", () => {
-    const stub = cy.stub()  
-    cy.on ("window:alert", stub)
-    cy
-      .get("#preview").click()
+    const stub = cy.stub();
+    cy.on("window:alert", stub);
+    cy.get("#preview")
+      .click()
       .then(() => {
-        expect(stub.getCall(0)).to.be.calledWith('Preview (TBD)');
-    })  
+        expect(stub.getCall(0)).to.be.calledWith("Preview (TBD)");
+      });
   });
 
   it("Download JSON, reload page to clear, Upload JSON and verify everything works", () => {
