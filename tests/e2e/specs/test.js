@@ -41,39 +41,39 @@ describe("E2E testing of Fast Form Designer", () => {
     cy.contains("div", "At least one section must be added.");
   });
 
-  it("Adds section and error disappears", () => {
+  it("Adds section and hides error", () => {
     cy.get(".add-section").click();
     cy.get("#sectionFeedback").should("have.css", "display", "none");
   });
 
-  it("Questions in textarea convert to rows and clear textarea and error", () => {
+  it("Converts questions in textarea to rows, clears textarea and error", () => {
     cy.get(".questions").type("One\nTwo\nThree");
     cy.get(".check").click();
     cy.get(".questions").should("have.text", "");
     cy.get("#questionsFeedback").should("have.css", "display", "none");
   });
 
-  it("Clearing question label shows error", () => {
+  it("Displays error when question label is cleared", () => {
     cy.get(".fifty-three").first().clear();
     cy.get("#questionLabelFeedback")
       .first()
       .should("have.css", "display", "block");
   });
 
-  it("Entering question label makes error disappear", () => {
+  it("Hides error when question label is entered", () => {
     cy.get(".fifty-three").first().type("One");
     cy.get("#questionLabelFeedback")
       .first()
       .should("have.css", "display", "none");
   });
 
-  it("Deleting question makes row disappear", () => {
+  it("Makes row disappear when question is deleted", () => {
     cy.get(".dropdown").first().click();
     cy.get(".delete").first().click();
     cy.get(".fifty-three").first().should("have.value", "Two");
   });
 
-  it("Adding a new question to the textarea and clicking check adds to the end", () => {
+  it("Types question into textarea and converts to row after clicking check", () => {
     cy.get(".questions").type("Four");
     cy.get(".check").click();
     cy.get(".fifty-three").last().should("have.value", "Four");
@@ -85,7 +85,7 @@ describe("E2E testing of Fast Form Designer", () => {
     cy.contains("h5", "Edit List Values");
   });
 
-  it("Typing values into textarea and clicking OK saves array elements", () => {
+  it("Converts textarea rows to value array elements", () => {
     const testData = "Alpha\nBeta\nGamma";
     cy.get(".values").type(testData);
     cy.contains("button", "OK").click();
@@ -95,18 +95,18 @@ describe("E2E testing of Fast Form Designer", () => {
     cy.contains("button", "OK").click();
   });
 
-  it("Changing data type of a question works", () => {
+  it("Changes data type of a question", () => {
     const testData = "Phone";
     cy.get(".custom-select").first().select(testData);
     cy.get(".custom-select").first().should("have.value", testData);
   });
 
-  it("Checking required checkbox works", () => {
+  it("Checks required checkbox", () => {
     cy.get(".required").first().click();
     cy.get(".required").first().should("have.checked", true);
   });
 
-  it("Clicking Preview button displays alert", () => {
+  it("Displays alert when Preview button is clicked", () => {
     const stub = cy.stub();
     cy.on("window:alert", stub);
     cy.get("#preview")
@@ -116,7 +116,7 @@ describe("E2E testing of Fast Form Designer", () => {
       });
   });
 
-  it("Download JSON, reload page to clear, Upload JSON and verify everything works", () => {
+  it("Downloads JSON, reloads page to clear, Uploads JSON", () => {
     cy.get("#download").click();
     cy.reload();
     cy.get(".upload").click();
