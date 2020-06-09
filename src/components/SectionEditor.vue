@@ -22,7 +22,7 @@
 
       SectionEditor(v-for='(subsection, index) in section.subsections', :section='subsection', :index='index', :key='subsection.id', v-on:delete='subsectionDelete')
 
-      button.btn.btn-success(@click='subsectionAdd', type='button')
+      button.btn.btn-success.add-subsection(@click='subsectionAdd', type='button')
         fa(:icon='["fas", "plus-circle"]') 
         | &nbsp;Add Subsection
 </template>

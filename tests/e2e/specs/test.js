@@ -46,6 +46,15 @@ describe("E2E testing of Fast Form Designer", () => {
     cy.get("#sectionFeedback").should("have.css", "display", "none");
   });
 
+  it("Adds subsection", () => {
+    cy.get(".add-subsection").first().click();
+    cy.get("input#sectionName").eq(1); // means there should be a second input with the id sectionName
+  });
+
+  it("Deletes subsection", () => {
+    cy.get(".delete-section").eq(1).click();
+  });
+
   it("Converts questions in textarea to rows, clears textarea and error", () => {
     cy.get(".questions").type("One\nTwo\nThree");
     cy.get(".check").click();
