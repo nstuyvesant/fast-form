@@ -41,6 +41,8 @@ Initial loading of Vue, [Font Awesome](https://fontawesome.com) and recursive co
 
 3. Run `yarn install` to install dependencies.
 
+4. On Windows, run `npm install -g cypress` to install Cypress globally.
+
 ### Compiles and hot-reloads development webserver
 ```
 yarn serve
