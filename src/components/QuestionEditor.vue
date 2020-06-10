@@ -32,7 +32,7 @@ export default class QuestionEditor extends Vue {
       id: mutations.nextId(),
       required: false,
       label: "",
-      dataType: "TextArea(3 rows)",
+      dataType: "Text(3 rows)",
       values: [],
     },
   })
