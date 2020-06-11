@@ -11,7 +11,7 @@ This client-side Single Page Application (SPA) is written in [TypeScript](https:
 needed for development, `npm run build` generates a slug of HTML, JavaScript and CSS that can
 be run with or without a web server (provided your browser allows local JavaScript to execute).
 
-Architecturally, the SPA is structured:
+Architecturally, the SPA has this relationship between components:
 - [App](/src/App.vue)
   - [Navbar](/src/components/Navbar.vue)
   - [Designer](/src/components/Designer.vue)
@@ -33,15 +33,15 @@ Initial loading of Vue, [Font Awesome](https://fontawesome.com) and recursive co
 
 ### Project setup
 
-1. Make sure prerequisites are installed for your operating system.
-  - macOS install: `brew install git node yarn Caskroom/versions/google-chrome`
-  - Windows install: `choco install git nodejs yarn googlechrome`
+1. Install [Homebrew](https://brew.sh) or [Chocolatey](https://chocolatey.org) depending on whether you are a macOS or Windows user. The latter requires a PowerShell run as Administrator (and to close and reopen after install).
+
+2. Make sure prerequisites are installed for your operating system.
+  - macOS install: `brew install git node yarn`
+  - Windows install: `choco install git nodejs yarn`
 
 2. Run `git clone https://github.com/nstuyvesant/fast-form.git` then connect to the /fast-form directory.
 
 3. Run `yarn install` to install dependencies.
-
-4. On Windows, run `npm install -g cypress` to install Cypress globally.
 
 ### Compiles and hot-reloads development webserver
 ```
