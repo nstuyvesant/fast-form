@@ -50,7 +50,7 @@ export default class SectionEditor extends Vue {
   private rawQuestions = "";
 
   // Default data type for each question
-  private dataTypeDefault = "TextArea(3 rows)";
+  private dataTypeDefault = "Text(3 rows)";
 
   // Emit a delete event to the Designer component to delete this section
   private sectionDelete(): void {
