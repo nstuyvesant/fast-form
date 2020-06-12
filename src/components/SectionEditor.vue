@@ -12,7 +12,7 @@
     .card-text
       .form-group
         .input-group
-          textarea.form-control.questions(v-model.trim='rawQuestions', rows=6, placeholder='Questions (one per row)')
+          textarea.form-control.questions(v-model.trim='rawQuestions', rows=6, placeholder='Questions (one per row) then click check on right')
           .input-group-append
             button.btn.btn-secondary.check(@click='rawQuestionsParse', type='button')
               fa(:icon='["fas", "check"]')
