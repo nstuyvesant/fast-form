@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Utilant Fast Form Designer",
   "author": "Nate Stuyvesant",
-  "license": "https://github.com/nstuyvesant/fast-form/LICENSE",
+  "license": "https://github.com/nstuyvesant/fast-form/blob/master/LICENSE",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
