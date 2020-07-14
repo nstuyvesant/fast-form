@@ -21,9 +21,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
-import { Question } from "@/types";
-import { mutations } from "@/store";
+import { Component, Vue, Prop } from "vue-property-decorator"
+import { Question } from "@/types"
+import { mutations } from "@/store"
 
 @Component
 export default class QuestionEditor extends Vue {
@@ -36,7 +36,7 @@ export default class QuestionEditor extends Vue {
       values: [],
     },
   })
-  private question!: Question;
+  private question!: Question
 
   private options: string[] = [
     "Checkbox",
@@ -45,13 +45,15 @@ export default class QuestionEditor extends Vue {
     "Date",
     "Dropdown",
     "Number(10,0)",
+    "Number(10,1)",
     "Number(10,2)",
     "Percentage(3,2)",
     "Percentage(3,0)",
     "Radios",
     "Text(1 row)",
+    "Text(2 rows)",
     "Text(3 rows)",
-    "Text(8 rows)",
+    "Text(5 rows)",
     "-",
     "Checkboxes - Heating Types",
     "Checkboxes - Roofing Materials",
@@ -76,29 +78,29 @@ export default class QuestionEditor extends Vue {
     "Years(3)",
     "ZIP Code",
     "ZIP Code +4",
-  ];
+  ]
 
-  @Prop(Number) readonly index: number | undefined;
+  @Prop(Number) readonly index: number | undefined
 
   // Create unique modal name/id corresponding to the question's id
   private modalName(id: number): string {
-    return `modal${id}`;
+    return `modal${id}`
   }
 
   // Convert array elements to lines for the textarea
   private rawValues =
-    this.question.values.length > 0 ? this.question.values.join("\n") : "";
+    this.question.values.length > 0 ? this.question.values.join("\n") : ""
 
   // Emit event to parent to delete this question
   private questionDelete(): void {
-    this.$emit("delete", this.index);
+    this.$emit("delete", this.index)
   }
 
   // Convert rows in the textarea to array elements
   private rawValuesParse(): void {
     if (this.rawValues.length > 0) {
-      const values = this.rawValues.split("\n");
-      this.question.values = values;
+      const values = this.rawValues.split("\n")
+      this.question.values = values
     }
   }
 }

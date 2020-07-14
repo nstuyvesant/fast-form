@@ -21,6 +21,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "@popperjs/core": "2.4.4",
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
@@ -74,7 +75,14 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {},
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "semi": false
+        }
+      ]
+    },
     "overrides": [
       {
         "files": [

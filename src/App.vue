@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import Navbar from "./components/Navbar.vue";
-import Designer from "./components/Designer.vue";
+import { Component, Vue } from "vue-property-decorator"
+import Navbar from "./components/Navbar.vue"
+import Designer from "./components/Designer.vue"
 
 @Component({
   components: {

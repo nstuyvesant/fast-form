@@ -15,27 +15,27 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import { Section } from "@/types";
-import { store, mutations } from "@/store";
+import { Component, Vue } from "vue-property-decorator"
+import { Section } from "@/types"
+import { store, mutations } from "@/store"
 
 @Component
 export default class Designer extends Vue {
   private get name(): string {
-    return store.data.name;
+    return store.data.name
   }
 
   private set name(name: string) {
-    mutations.nameSet(name);
+    mutations.nameSet(name)
   }
 
   private get sections(): Section[] {
-    return store.data.sections;
+    return store.data.sections
   }
 
   // Handler for delete event emitted from child section
   private sectionDelete(index: number): void {
-    mutations.sectionDelete(index);
+    mutations.sectionDelete(index)
   }
 
   // Add a new section using the next id from the store
@@ -45,8 +45,8 @@ export default class Designer extends Vue {
       id: mutations.nextId(),
       questions: [],
       subsections: [],
-    };
-    mutations.sectionAdd(section);
+    }
+    mutations.sectionAdd(section)
   }
 }
 </script>
