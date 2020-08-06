@@ -19,7 +19,7 @@ nav.navbar.navbar-dark.bg-dark
     form(novalidate='')
       .form-group
         label(for='targetServer') LC360 Website
-        input.form-control(v-model.trim='targetUri', id='targetServer', aria-describedby='targetServerHelp', autofocus='', placeholder='https://example.losscontrol360.com')
+        input.form-control(v-model.trim='targetUri', id='targetServer', ref='targetServerRef', aria-describedby='targetServerHelp', autofocus='', placeholder='https://example.losscontrol360.com')
         small.form-text.text-muted(id='targetServerHelp') Target server
       .form-group
         label(for='webApiId') Web API ID
@@ -74,6 +74,7 @@ export default class Navbar extends Vue {
         body: this.tokenRequest,
       }
     )
+
     // tokenResult looks like { expires, issued, access_token, token_type, userName }
     const uploadResult = await axios.post(
       `${this.targetUri}/api/form-loader`,
