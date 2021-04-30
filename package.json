@@ -13,7 +13,7 @@
     "lint": "vue-cli-service lint"
   },
   "engines": {
-    "node": "~15.13.0",
+    "node": "~16.0.0",
     "yarn": "~1.22.10"
   },
   "dependencies": {
