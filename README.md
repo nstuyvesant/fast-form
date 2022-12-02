@@ -1,6 +1,6 @@
 [![vue.js][vue.js]][vue.js-url]
 
-# Utilant Fast Form Designer
+# Fast Form Designer
 
 The Fast Form Designer is a lightweight form prototyper designed to scaffold
 Dynamic Forms for Loss Control 360 (LC360). The design omits details such as
